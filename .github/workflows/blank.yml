@@ -40,3 +40,12 @@ jobs:
         with:
           # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: run the terraform to create a random resource group
+        run: |
+          terraform init
+          sleep 20
+          terraform plan
+          sleep 20
+          terraform apply -auto-approve
+          sleep 20
