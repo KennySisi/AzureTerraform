@@ -6,24 +6,15 @@ provider "azurerm" {
   }
 }
 
-resource "random_string" "random_str" {
-  length  = 6
-  special = false
-  upper   = false
+module "random_string" {
+  source = "./modules/random_string"
+  length = var.length
 }
 
-
-resource "azurerm_resource_group" "main" {
-  name     = "${var.prefix}-rg-20240125-${random_string.random_str.result}"
+module "create_resource_group" {
+  source = "./modules/resource_group"
+  prefix = var.prefix
   location = var.location
+  random_string = module.random_string
 }
 
-variable "prefix" {
-  description = "The prefix which should be used for all resources in this example"
-  default = "kenny1"
-}
-
-variable "location" {
-  description = "The Azure Region in which all resources in this example should be created."
-  default = "Japan East"
-}
