@@ -1,4 +1,4 @@
-resource "random_string" "random_str" {
+resource "random_string" "main" {
   length  = var.length
   special = false
   upper   = false

@@ -8,7 +8,7 @@ variable "location" {
   default = "Japan East"
 }
 
-variable "random_string" {
-  description = "a random string"
-  default = "random_string"
+variable "length" {
+  description = "The length of the random sting"
+  default = 4
 }
