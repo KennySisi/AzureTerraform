@@ -1,6 +1,4 @@
-variable "prefix" {
-  description = "The prefix which should be used for all resources in this example"
-  default = "kenny1"
+variable "rg_name" {
 }
 
 variable "location" {
@@ -8,7 +6,19 @@ variable "location" {
   default = "Japan East"
 }
 
-variable "length" {
-  description = "The length of the random sting"
-  default = 8
+variable "asp_name" {
+  
+}
+
+variable "app_service_name" {
+  
+}
+
+variable "os_type" {
+    description = "Linux or Windows"
+    default = "Linux"
+}
+
+variable "sku_name" {
+    default = "S1"
 }
